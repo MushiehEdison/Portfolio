@@ -84,7 +84,7 @@ const App = () => {
       description: "Book seats in any travel agency from home",
       tech: ["HTML", "CSS", "JavaScript","Flask"],
       role: "Full-Stack Developer",
-      status: "On development, View on github",
+      status: "In development, View on github",
       link: "#https://github.com/MushiehEdison/Travel-Go" // Replace with actual project link
     }
   ];
@@ -135,7 +135,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen font-sans bg-gradient-to-b from-gray-900 to-blue-900 text-gray-200">
+    <div className="min-h-screen font-sans bg-gradient-to-b from-gray-900 to-gray-900 text-green-200">
       <nav className="bg-gray-800/90 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -487,7 +487,7 @@ const App = () => {
                 <Github size={18} />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/mushieh-edison"
+                href="www.linkedin.com/in/mushieh-edison-614782293"
                 className="text-gray-400 hover:text-blue-400"
                 whileHover={{ scale: 1.1 }}
                 target="_blank"
