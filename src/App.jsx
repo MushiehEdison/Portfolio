@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import { 
   Mail, Github, Linkedin, ExternalLink, Menu, X, Clock,
   Code2, Database, Globe, Palette, Brain, Rocket, Star, ArrowRight, MapPin, Calendar, Award 
@@ -58,35 +58,34 @@ const App = () => {
       title: "Business Monitoring and Analysis system",
       description: "Analytics platform for Cameroonian businesses with real-time insights and predictive recommendations.",
       tech: ["Flask", "MySQL", "React js", "Chart.js"],
-      status: "Pending",
-      link: "#" 
+      status: "In Development, View on Github",
+      link: "https://github.com/MushiehEdison/Analytics" 
     },
     {
-      title: "Social Media Platform",
-      description: "Feature-rich platform with media sharing and real-time interactions.",
-      tech: ["React.js", "Flask", "SQLAlchemy", "Socket.io"],
+      title: "Fitness Website",
+      description: "Keep Fit and buy fitness plan",
+      tech: ["Html", "Flask", "SQLAlchemy", "Socket.io"],
       role: "Lead Developer",
-      status: "In Development",
+      status: "Complete",
       impact: "1000+ beta users engaged",
-      link: "#" // Replace with actual project link
+      link: "https://fitness-z41z.onrender.com/#" // Replace with actual project link
     },
     {
-      title: "AI Data Analysis Suite",
-      description: "Machine learning toolkit for automated data processing and visualization.",
+      title: "AI powered Patient Education and Diagnosis system",
+      description: "Patient personal Health assistent",
       tech: ["Python", "pandas", "Matplotlib", "scikit-learn"],
       role: "Data Scientist",
       status: "Prototype",
       impact: "Reduces analysis time by 80%",
-      link: "#" // Replace with actual project link
+      link: "https://healia.netlify.app/" // Replace with actual project link
     },
     {
-      title: "Dynamic Portfolio CMS",
-      description: "Content management system with drag-and-drop functionality for client portfolios.",
-      tech: ["WordPress", "PHP", "JavaScript", "Custom API"],
+      title: "Travel Agency Management system",
+      description: "Book seats in any travel agency from home",
+      tech: ["HTML", "CSS", "JavaScript","Flask"],
       role: "Full-Stack Developer",
-      status: "Live",
-      impact: "20+ client websites launched",
-      link: "#" // Replace with actual project link
+      status: "On development, View on github",
+      link: "#https://github.com/MushiehEdison/Travel-Go" // Replace with actual project link
     }
   ];
 
@@ -117,7 +116,8 @@ const App = () => {
       skills: [
         { name: "NumPy", level: 75, color: "text-blue-400" },
         { name: "pandas", level: 80, color: "text-purple-400" },
-        { name: "Matplotlib", level: 70, color: "text-orange-400" }
+        { name: "Matplotlib", level: 70, color: "text-orange-400" },
+        {name: "Scikit", level: 70, color: "text-red-400"}
       ],
       icon: <Brain className="w-5 h-5" />,
       color: "from-purple-600 to-indigo-400"
@@ -126,7 +126,8 @@ const App = () => {
       skills: [
         { name: "Git", level: 85, color: "text-orange-400" },
         { name: "Figma", level: 70, color: "text-pink-400" },
-        { name: "WordPress", level: 80, color: "text-blue-400" }
+        { name: "WordPress", level: 80, color: "text-blue-400" },
+        { name: "Wix", level: 80, color: "text-green-400" }
       ],
       icon: <Palette className="w-5 h-5" />,
       color: "from-pink-600 to-rose-400"
@@ -246,12 +247,12 @@ const App = () => {
               >
                 <h3 className="text-xl font-semibold text-blue-400 mb-4">My Journey</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  I'm an 18-year-old Computer Engineering student from Cameroon, passionate about building innovative solutions in AI, web development, and data science. With over 3 years of experience, I create impactful applications with a focus on performance and user experience.
+                  I'm an 20-year-old Computer Engineering student from Cameroon, passionate about building innovative solutions in AI, web development, and data science. With over 3 years of experience, I create impactful applications with a focus on performance and user experience.
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   {[
-                    { icon: <MapPin size={18} />, label: "Location", value: "Buea, Cameroon" },
-                    { icon: <Calendar size={18} />, label: "Age", value: "18 years" },
+                    { icon: <MapPin size={18} />, label: "Location", value: "Douala, Cameroon" },
+                    { icon: <Calendar size={18} />, label: "Age", value: "20 years" },
                     { icon: <Code2 size={18} />, label: "Experience", value: "3+ years" },
                     { icon: <Award size={18} />, label: "Projects", value: "20+ completed" }
                   ].map((item, index) => (
@@ -425,7 +426,7 @@ const App = () => {
             </motion.a>
             <div className="flex space-x-4">
               <motion.a
-                href="https://github.com/mushieh-edison"
+                href="hhttps://github.com/MushiehEdison/"
                 className="p-3 bg-gray-800/50 border border-gray-700 rounded-full"
                 whileHover={{ scale: 1.1 }}
                 target="_blank"
@@ -435,7 +436,7 @@ const App = () => {
                 <Github size={18} className="text-gray-400 hover:text-blue-400" />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/mushieh-edison"
+                href=" https://www.linkedin.com/posts/data-science-without-borders_code2carehackathon-dswb-teamgenez-ugcPost-7360597485905469440-C3FL?utm_source=share&utm_medium=member_android&rcm=ACoAAEcgnPAB_yGn5perTzuSLqH6XombW_A94Bk"
                 className="p-3 bg-gray-800/50 border border-gray-700 rounded-full"
                 whileHover={{ scale: 1.1 }}
                 target="_blank"
@@ -449,7 +450,7 @@ const App = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: <Mail size={24} />, title: "Email", value: EMAIL_ADDRESS, color: "blue-400" },
-              { icon: <MapPin size={24} />, title: "Location", value: "Buea, Cameroon", color: "green-400" },
+              { icon: <MapPin size={24} />, title: "Location", value: "Douala, Cameroon", color: "green-400" },
               { icon: <Clock size={24} />, title: "Response Time", value: "Within 24 hours", color: "purple-400" }
             ].map((item, index) => (
               <FadeInSection key={index} delay={index * 0.2}>
