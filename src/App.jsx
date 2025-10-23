@@ -83,7 +83,7 @@ export default function App() {
         {/* Center Image */}
         <div className="relative z-20">
           <img 
-            src="../public/me2.jpg"
+            src=" /me2.jpg"
             alt="Profile"
             onClick={() => setImageExpanded(!imageExpanded)}
             className={`cursor-pointer transition-all duration-500 shadow-2xl ${

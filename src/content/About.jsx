@@ -60,7 +60,7 @@ export default function About({ onBack }) {
             {/* Download Resume Button */}
             <div className="pt-6">
               <a
-                href="../public/PROFILE.pdf" // replace with your actual resume path
+                href=" /PROFILE.pdf" // replace with your actual resume path
                 download
                 className="text-white font-semibold border-0 bg-transparent hover:text-gray-300 underline underline-offset-4 decoration-gray-500 transition-all"
               >

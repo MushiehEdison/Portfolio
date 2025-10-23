@@ -8,25 +8,25 @@ export default function Gallery({ onBack }) {
     photos: [
       {
         id: 1,
-        url: "../public/extra-c/CM3A1667.jpg",
+        url: " /extra-c/CM3A1667.jpg",
         title: "CODE2CARE Hackathon 2025",
         description: "Team HEXA celebration after winning 3rd place with innovative AI solution"
       },
       {
         id: 2,
-        url: "../public/extra-c/CM3A1717.jpg",
+        url: " /extra-c/CM3A1717.jpg",
         title: "Hackathon Award Ceremony",
         description: "Receiving the 3rd place certificate and 250,000 FCFA prize"
       },
       {
         id: 3,
-        url: "../public/extra-c/CM3A1595.jpg",
+        url: " /extra-c/CM3A1595.jpg",
         title: "CODE2CARE Team Collaboration",
         description: "Working with the team on AI solutions for Douala General Hospital"
       },
       {
         id: 4,
-        url: "../public/extra-c/IMG_6577.jpg",
+        url: " /extra-c/IMG_6577.jpg",
         title: "Hackathon Presentation",
         description: "Presenting our AI solution to the judges and audience"
       }
@@ -34,21 +34,21 @@ export default function Gallery({ onBack }) {
     certifications: [
       {
         id: 1,
-        url: "../public/extra-c/20250901_105601.jpg",
+        url: " /extra-c/20250901_105601.jpg",
         title: "VTIB Full Stack Developer Certification",
         description: "Certificate of completion for Full Stack Development program",
         date: "2025"
       },
       {
         id: 2,
-        url: "../public/extra-c/IMG-20250403-WA0007.jpg",
+        url: " /extra-c/IMG-20250403-WA0007.jpg",
         title: "Full-Experts Consulting Internship Certificate",
         description: "Attestation for successful completion of internship",
         date: "2024"
       },
       {
         id: 3,
-        url: "../public/extra-c/Screenshot 2025-10-23 022854.png",
+        url: " /extra-c/Screenshot 2025-10-23 022854.png",
         title: "CODE2CARE Hackathon Participation Certificate",
         description: "Certificate for attending Predictive Analytics and AI Integration training",
         date: "August 6, 2025"
@@ -57,7 +57,7 @@ export default function Gallery({ onBack }) {
     events: [
       {
         id: 1,
-        url: "../public/extra-c/IMG-20250810-WA0007.jpg",
+        url: " /extra-c/IMG-20250810-WA0007.jpg",
         title: "CODE2CARE Hackathon 2025",
         description: "Participated in the AI and Data Science hackathon organized by Data Science Without Borders",
         date: "July 2025"
