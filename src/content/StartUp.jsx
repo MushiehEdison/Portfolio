@@ -1,13 +1,15 @@
-export default function Startup({ onBack }) {
+import { Link } from "react-router-dom";
+
+export default function Startup() {
   return (
     <div className="fixed inset-0 bg-yellow-600  overflow-hidden">
       {/* Back Button */}
-      <button
-        onClick={onBack}
-        className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-green-200 transition-colors z-20"
+      <Link
+        to='/'
+        className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-300 transition-colors z-20"
       >
         <span className="text-xl sm:text-2xl">←</span>
-      </button>
+      </Link>
 
       {/* Date / Est */}
       <div className="absolute top-4 sm:top-6 right-4 sm:right-8 text-white text-xs sm:text-sm font-mono opacity-80">

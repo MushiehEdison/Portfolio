@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
-export default function Gallery({ onBack }) {
+
+export default function Gallery() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [activeTab, setActiveTab] = useState('photos');
 
@@ -70,12 +72,12 @@ export default function Gallery({ onBack }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 z-40 flex items-center justify-center p-4 sm:p-8">
       {/* Back Button */}
-      <button 
-        onClick={onBack}
-        className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-green-200 transition-colors z-30"
+      <Link
+        to='/'
+        className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-300 transition-colors z-20"
       >
         <span className="text-xl sm:text-2xl">←</span>
-      </button>
+      </Link>
 
       {/* Title */}
       <div className="absolute top-4 sm:top-6 left-1/2 transform -translate-x-1/2 text-white text-lg sm:text-xl md:text-2xl font-mono font-bold z-20">

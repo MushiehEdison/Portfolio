@@ -1,13 +1,15 @@
-export default function ProjectDetail({ project, onBack }) {
+import { Link } from "react-router-dom";
+
+export default function ProjectDetail({ project }) {
   return (
     <div className={`fixed inset-0 bg-gradient-to-br ${project.color} overflow-y-auto`}>
       {/* Back Button */}
-      <button 
-        onClick={onBack}
-        className="fixed top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-100 transition-colors z-20"
+      <Link
+        to='/'
+        className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-300 transition-colors z-20"
       >
         <span className="text-xl sm:text-2xl">←</span>
-      </button>
+      </Link>
 
       {/* Content */}
       <div className="min-h-full w-full flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-32 py-20 sm:py-24">

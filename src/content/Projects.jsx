@@ -1,9 +1,82 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import ProjectDetail from './ProjectDetail';
 
-export default function Projects({ onBack }) {
-  const [selectedProject, setSelectedProject] = useState(null);
+/* -------------------------------------------------
+   SVG Folder Icon (JSX - no TS)
+   ------------------------------------------------- */
+const FolderIcon = ({
+  color = "#FCD34D",
+  size = 120,
+  title,
+  year,
+  onClick
+}) => (
+  <div
+    className="flex flex-col items-center cursor-pointer group"
+    onClick={onClick}
+  >
+    <div className="drop-shadow-lg transition-transform group-hover:scale-110 group-hover:-translate-y-1">
+      <svg
+        width={size}
+        height={size * 0.75}
+        viewBox="0 0 120 90"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 15C15 12.2386 17.2386 10 20 10H42L52 20H105C107.761 20 110 22.2386 110 25V30H15V15Z"
+          fill={color}
+          stroke="#000000"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M15 25H110C112.761 25 115 27.2386 115 30V80C115 82.7614 112.761 85 110 85H20C17.2386 85 15 82.7614 15 80V25Z"
+          fill={color}
+          stroke="#000000"
+          strokeWidth="1.5"
+        />
+        <defs>
+          <pattern
+            id={`pattern-${color.replace('#', '')}`}
+            x="0"
+            y="0"
+            width="8"
+            height="8"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M0 8L8 0M-2 2L2 -2M6 10L10 6"
+              stroke="#666"
+              strokeWidth="0.5"
+              opacity="0.15"
+            />
+          </pattern>
+        </defs>
+        <rect
+          x="15"
+          y="25"
+          width="100"
+          height="60"
+          fill={`url(#pattern-${color.replace('#', '')})`}
+        />
+      </svg>
+    </div>
 
+    <div className="mt-2 text-center">
+      <p className="text-white text-xs sm:text-sm md:text-base font-mono font-semibold group-hover:text-yellow-300 transition-colors line-clamp-2">
+        {title}
+      </p>
+      <p className="text-gray-400 text-[10px] sm:text-xs font-mono mt-0.5">
+        {year}
+      </p>
+    </div>
+  </div>
+);
+
+/* -------------------------------------------------
+   Projects Data
+   ------------------------------------------------- */
 const projects = [
   {
     id: 1,
@@ -21,7 +94,7 @@ const projects = [
     challenges: "Building real-time data processing and ensuring insights remain accurate across large datasets.",
     outcome: "Enabled companies to make data-driven decisions and identify key market opportunities faster.",
     link: "#",
-    color: "from-black to-black"
+    color: "#FCD34D"
   },
   {
     id: 2,
@@ -39,7 +112,7 @@ const projects = [
     challenges: "Designing a secure and scalable architecture to handle multiple vendors and transactions.",
     outcome: "Launched successfully with a growing number of sellers and buyers engaging daily.",
     link: "#",
-    color: "from-black to-black"
+    color: "#FCD34D"
   },
   {
     id: 3,
@@ -57,7 +130,7 @@ const projects = [
     challenges: "Training the AI to handle medical data accurately and respond naturally in both languages.",
     outcome: "Improved patient understanding of health topics and reduced clinic consultation time by 30%.",
     link: "#",
-    color: "from-black to-black"
+    color: "#FCD34D"
   },
   {
     id: 4,
@@ -75,7 +148,7 @@ const projects = [
     challenges: "Ensuring prediction accuracy and handling incomplete donation records efficiently.",
     outcome: "Enabled hospitals to manage blood stocks more efficiently and reduce shortages.",
     link: "#",
-    color: "from-black to-black"
+    color: "#FCD34D"
   },
   {
     id: 5,
@@ -93,7 +166,7 @@ const projects = [
     challenges: "Creating a sleek, corporate look while maintaining responsiveness and fast performance.",
     outcome: "Increased company visibility and client inquiries through the online platform.",
     link: "https://full-expert.com/",
-    color: "from-black to-black"
+    color: "#FCD34D"
   },
   {
     id: 6,
@@ -115,7 +188,7 @@ const projects = [
       "https://lubs.netlify.app/",
       "https://armureriebissoung.netlify.app/"
     ],
-    color: "from-black to-black"
+    color: "#FCD34D"
   },
   {
     id: 7,
@@ -133,18 +206,21 @@ const projects = [
     challenges: "Integrating secure payment systems and ensuring smooth performance across devices.",
     outcome: "Enabled users to easily subscribe and manage fitness plans online.",
     link: "https://fitness-z41z.onrender.com/",
-    color: "from-black to-black"
+    color: "#FCD34D"
   }
 ];
 
-
-
+/* -------------------------------------------------
+   Main Component
+   ------------------------------------------------- */
+export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
 
   if (selectedProject) {
     return (
-      <ProjectDetail 
-        project={selectedProject} 
-        onBack={() => setSelectedProject(null)} 
+      <ProjectDetail
+        project={selectedProject}
+        onBack={() => setSelectedProject(null)}
       />
     );
   }
@@ -152,65 +228,44 @@ const projects = [
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-gray-800 to-gray-900 overflow-y-auto">
       {/* Back Button */}
-      <button 
-        onClick={onBack}
-        className="fixed top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-300 transition-colors z-20"
+      <Link
+        to='/'
+        className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-300 transition-colors z-20"
       >
         <span className="text-xl sm:text-2xl">←</span>
-      </button>
+      </Link>
 
       {/* Title */}
-      <div className="fixed top-4 sm:top-6 left-1/2 transform -translate-x-1/2 text-white text-lg sm:text-xl md:text-2xl font-mono font-bold z-20">
+      <div className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 text-white text-lg sm:text-xl md:text-2xl font-mono font-bold z-20">
         My Projects
       </div>
 
-      {/* Grid of Folders */}
+      {/* Grid */}
       <div className="min-h-full w-full px-4 sm:px-8 md:px-16 lg:px-24 pt-20 sm:pt-24 pb-16">
         <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="cursor-pointer group"
-            >
-              {/* Folder */}
-              <div className="relative">
-                {/* Folder Tab */}
-                <div className="absolute -top-2 left-0 w-16 sm:w-20 md:w-24 h-4 sm:h-5 md:h-6 bg-gradient-to-b from-yellow-300 to-yellow-400 rounded-t-md shadow-md z-10"></div>
-                
-                {/* Folder Body */}
-                <div className="relative w-full h-20 sm:h-24 md:h-28 bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-lg shadow-xl group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 group-hover:scale-105">
-                  {/* Folder shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-lg"></div>
-                  
-                  {/* Folder texture */}
-                  <div className="absolute inset-0 rounded-lg opacity-10" style={{
-                    backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,.1) 3px, rgba(0,0,0,.1) 6px)'
-                  }}></div>
+          {projects.map((proj) => {
+            const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+            const isTablet = typeof window !== 'undefined' && window.innerWidth < 768;
+            const size = isMobile ? 70 : isTablet ? 90 : 110;
 
-                  {/* Folder front flap */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b from-transparent to-black/10 rounded-b-lg"></div>
-                </div>
-                
-                {/* Label */}
-                <div className="text-center mt-3 sm:mt-4 px-1">
-                  <p className="text-white text-xs sm:text-sm md:text-base font-mono font-semibold group-hover:text-yellow-300 transition-colors line-clamp-2">
-                    {project.title}
-                  </p>
-                  <p className="text-gray-400 text-[10px] sm:text-xs font-mono mt-1">
-                    {project.year}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+            return (
+              <FolderIcon
+                key={proj.id}
+                color={proj.color}
+                size={size}
+                title={proj.title}
+                year={proj.year}
+                onClick={() => setSelectedProject(proj)}
+              />
+            );
+          })}
         </div>
       </div>
 
-      {/* Bottom Hint */}
-      <div className="fixed bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 text-white text-xs sm:text-sm font-mono opacity-60 text-center z-20">
+      {/* Hint */}
+      <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 text-white text-xs sm:text-sm font-mono opacity-60 text-center z-20">
         <div>Click any folder to view project details</div>
-        <div className="mt-1">← back to home</div>
+        <div className="mt-1">Back to home</div>
       </div>
     </div>
   );
