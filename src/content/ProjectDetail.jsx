@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function ProjectDetail({ project }) {
   return (
-    <div className={`fixed inset-0 bg-gradient-to-br ${project.color} overflow-y-auto`}>
+    <div className="fixed inset-0 bg-gradient-to-br from-gray-800 to-gray-900 overflow-y-auto">
       {/* Back Button */}
       <Link
-        to='/'
+        to='/projects'
         className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-300 transition-colors z-20"
       >
         <span className="text-xl sm:text-2xl">←</span>
