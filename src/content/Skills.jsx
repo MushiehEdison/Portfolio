@@ -1,103 +1,130 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
+import { ChevronLeft, Code2, Monitor, Cpu, Wrench } from "lucide-react";
 
+const skillCategories = [
+  {
+    category: "Frontend",
+    colorClass: "front",
+    Icon: Code2,
+    skills: [
+      { name: "HTML", level: 95 },
+      { name: "JavaScript", level: 90 },
+      { name: "CSS", level: 90 },
+      { name: "React.js", level: 85 },
+      { name: "Tailwind", level: 80 },
+      { name: "Bootstrap", level: 75 },
+    ],
+  },
+  {
+    category: "Backend",
+    colorClass: "back",
+    Icon: Monitor,
+    skills: [
+      { name: "Python", level: 90 },
+      { name: "Flask", level: 85 },
+      { name: "MySQL", level: 80 },
+      { name: "Django", level: 75 },
+    ],
+  },
+  {
+    category: "AI & Data Science",
+    colorClass: "ai",
+    Icon: Cpu,
+    skills: [
+      { name: "pandas", level: 80 },
+      { name: "NumPy", level: 75 },
+      { name: "Scikit-learn", level: 70 },
+      { name: "Matplotlib", level: 70 },
+    ],
+  },
+  {
+    category: "Tools & Design",
+    colorClass: "tools",
+    Icon: Wrench,
+    skills: [
+      { name: "Git", level: 85 },
+      { name: "WordPress", level: 80 },
+      { name: "Wix", level: 80 },
+      { name: "Figma", level: 70 },
+    ],
+  },
+];
 
-export default function Skills() {
-  const skillCategories = [
-    {
-      category: "Frontend Development",
-      skills: [
-        { name: "React.js", level: 85, icon: "⚛️" },
-        { name: "JavaScript", level: 90, icon: "🟨" },
-        { name: "HTML", level: 95, icon: "🌐" },
-        { name: "CSS", level: 90, icon: "🎨" },
-        { name: "Tailwind", level: 80, icon: "💨" },
-        { name: "Bootstrap", level: 75, icon: "🅱️" }
-      ]
-    },
-    {
-      category: "Backend Development",
-      skills: [
-        { name: "Python", level: 90, icon: "🐍" },
-        { name: "Flask", level: 85, icon: "🧪" },
-        { name: "Django", level: 75, icon: "🎯" },
-        { name: "MySQL", level: 80, icon: "🗄️" }
-      ]
-    },
-    {
-      category: "AI & Data Science",
-      skills: [
-        { name: "NumPy", level: 75, icon: "🔢" },
-        { name: "pandas", level: 80, icon: "🐼" },
-        { name: "Matplotlib", level: 70, icon: "📊" },
-        { name: "Scikit-learn", level: 70, icon: "🤖" }
-      ]
-    },
-    {
-      category: "Tools & Design",
-      skills: [
-        { name: "Git", level: 85, icon: "🔀" },
-        { name: "Figma", level: 70, icon: "🎨" },
-        { name: "WordPress", level: 80, icon: "📝" },
-        { name: "Wix", level: 80, icon: "🌟" }
-      ]
-    }
-  ];
+function SkillBar({ level, colorClass }) {
+  const fillRef = useRef(null);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (fillRef.current) fillRef.current.style.width = `${level}%`;
+    }, 120);
+    return () => clearTimeout(timeout);
+  }, [level]);
 
   return (
-    <div className="fixed inset-0 bg-green-900 overflow-hidden">
-      {/* Back Button */}
-      <Link
-        to='/'
-        className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white hover:text-gray-300 transition-colors z-20"
-      >
-        <span className="text-xl sm:text-2xl">←</span>
-      </Link>
+    <div className="h-[3px] bg-white/[0.07] rounded-full overflow-hidden">
+      <div
+        ref={fillRef}
+        style={{ width: 0, transition: "width 0.9s cubic-bezier(.4,0,.2,1)" }}
+        className={`h-full rounded-full bar-fill-${colorClass}`}
+      />
+    </div>
+  );
+}
 
-      {/* Title */}
-      <div className="absolute top-4 sm:top-6 left-1/2 transform -translate-x-1/2 text-white text-lg sm:text-xl md:text-2xl font-mono font-bold">
-        Technical Skills
-      </div>
+export default function Skills() {
+  return (
+    <div className="min-h-screen bg-[#0d2218] font-mono text-[#e8ede9]">
 
-      {/* Content */}
-      <div className="h-full w-full flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-32 pt-16 sm:pt-20">
-        <div className="max-w-4xl w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-            {skillCategories.map((category, index) => (
-              <div
-                key={index}
-                className="bg-white bg-opacity-20 backdrop-blur-sm p-4 sm:p-6 rounded-lg hover:bg-opacity-30 transition-all"
-              >
-                <h3 className="text-white font-mono font-bold text-base sm:text-lg md:text-xl mb-3 sm:mb-4 border-b border-white border-opacity-30 pb-2">
-                  {category.category}
-                </h3>
-                <div className="space-y-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div
-                      key={skillIndex}
-                      className="text-white text-xs sm:text-sm font-mono flex items-center group"
-                    >
-                      <span className="mr-2 sm:mr-3 group-hover:scale-125 transition-transform">{skill.icon}</span>
-                      <span className="group-hover:text-green-200 transition-colors">{skill.name}</span>
-                    </div>
-                  ))}
-                </div>
+      {/* Header */}
+      <header className="flex items-center justify-between px-6 sm:px-10 py-6 border-b border-white/10">
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-[11px] uppercase tracking-widest text-white/40 hover:text-white/90 transition-colors"
+        >
+          <ChevronLeft size={14} />
+          Back
+        </Link>
+        <span className="text-base font-serif italic text-[#e8ede9]">Technical Skills</span>
+        <span className="text-[11px] uppercase tracking-widest text-white/25">Portfolio</span>
+      </header>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto px-6 sm:px-10 py-10">
+        {skillCategories.map(({ category, colorClass, Icon, skills }) => (
+          <div
+            key={category}
+            className="bg-white/[0.04] hover:bg-white/[0.065] transition-colors border border-white/[0.08] rounded-xl p-6"
+          >
+            {/* Card header */}
+            <div className="flex items-center gap-3 mb-5 pb-4 border-b border-white/[0.08]">
+              <div className={`w-7 h-7 rounded-md flex items-center justify-center icon-bg-${colorClass}`}>
+                <Icon size={14} />
               </div>
-            ))}
-          </div>
+              <span className="text-[11px] uppercase tracking-widest text-white/50">{category}</span>
+            </div>
 
-          {/* Additional Info */}
-          <div className="mt-6 sm:mt-8 text-center">
-            <p className="text-white text-xs sm:text-sm font-mono opacity-80">
-              Always learning and exploring new technologies
-            </p>
+            {/* Skills */}
+            <div className="space-y-3.5">
+              {skills.map(({ name, level }) => (
+                <div key={name}>
+                  <div className="flex justify-between items-baseline mb-1.5">
+                    <span className="text-[12.5px] text-[#e8ede9]">{name}</span>
+                    <span className="text-[11px] text-white/30 tabular-nums">{level}%</span>
+                  </div>
+                  <SkillBar level={level} colorClass={colorClass} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
 
-      {/* Bottom Navigation Hint */}
-      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 text-white text-xs sm:text-sm font-mono opacity-60">
-        click ← to return home
+      {/* Footer */}
+      <div className="text-center pb-10">
+        <p className="text-[11px] uppercase tracking-widest text-white/20">
+          Always learning &mdash; always building
+        </p>
       </div>
     </div>
   );
