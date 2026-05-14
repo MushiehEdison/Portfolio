@@ -25,6 +25,8 @@ const skillCategories = [
       { name: "Flask", level: 85 },
       { name: "MySQL", level: 80 },
       { name: "Django", level: 75 },
+      { name: "Php", level: 50 },
+      { name: "Laravel", level: 30 },
     ],
   },
   {

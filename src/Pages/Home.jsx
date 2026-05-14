@@ -37,9 +37,7 @@ export default function Home() {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 flex justify-between items-center px-4 sm:px-8 py-4 sm:py-6 z-10">
         <div className="text-gray-600 text-xs sm:text-sm font-mono">Mushieh Edison</div>
-        <div className="text-gray-600 text-xs sm:text-sm font-mono cursor-pointer">
-          HELLO WORLD
-        </div>
+        
         <a href="mailto:mushiehedison66@gmail.com" className="text-gray-600 text-xs sm:text-sm font-mono cursor-pointer">
           contact
         </a>
@@ -117,7 +115,7 @@ export default function Home() {
           <div className="flex flex-col items-center">
             <div className="drop-shadow-lg">
               <FolderIcon 
-                color="#0b4d1fff" 
+                color="rgb(212, 212, 212)" 
                 size={window.innerWidth < 640 ? 70 : window.innerWidth < 768 ? 100 : 120}
               />
             </div>
